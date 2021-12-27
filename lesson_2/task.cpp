@@ -17,10 +17,11 @@ lesson 2
 
 using namespace  std;
 void task1();
+void task2();
 
 int main(){
-
-  return 0;
+    task1();
+    return 0;
 }
 
 void task1(){
@@ -28,8 +29,7 @@ void task1(){
     bool false_true = 0; // все что больше 0 это true
 
     //Занимаем 1 байт 1 символ
-    char one_ascii = "Host"; //char one_ascii = "Хозяин"; не рабочий варинат
-
+    char one_ascii = 'Y';
     //Занимаем 2 байта
     short int min_short_int = -32768;
     short int max_short_int = 32767;
@@ -39,15 +39,30 @@ void task1(){
     int min_int = -2147483648;
 
     //Занимаем 8 байта
-    long long  long_long_max =  9 223'372'036'854'775'807;
-    long long  long_long_min = -9 223'372'036'854'775'808;
+    long long  long_long_max =  9223372036854775807;
+    long long  long_long_min = -9223372036854775807;
+
+    //Занимаем 4 байта
+    float num_float = 3.211111f; // точность до 7 цифр
+
+    //Занимаем 8 байта
+    long double num_doble = 3.21111111111111f;// точность до 15 цифр
+
+//    void
 
 
-    << cout << "char ascii" << one_ascii  << "\n";
-    << cout << "short int  max and min" << max_short_int  << " - " <<min_short_int << "\n";
-    << cout << "int  max and min" << max_int  << " - " <<min_int << "\n";
-    << cout << "long long   max and min" << long_long_max  << " - " <<long_long_min << "\n";
+    cout << "bool false_true " << false_true  << "\n";
+    cout << "char ascii " << one_ascii  << "\n";
+    cout << "short int  max and min " << max_short_int  << " - " <<min_short_int << "\n";
+    cout << "int  max and min " << max_int  << " - " <<min_int << "\n";
+    cout << "long long   max and min " << long_long_max  << " - " <<long_long_min << "\n";
+    cout << "float num_float " << num_float  << "\n";
+    cout << "double num_doble " << num_doble  << "\n";
 
 
+
+}
+
+void task2(){
 
 }
