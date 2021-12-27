@@ -20,11 +20,14 @@ void task1();
 void task2();
 void task3();
 void task4();
+void task5();
 
 int main(){
     task1();
     task2();
     task3();
+    task4();
+    task5();
     return 0;
 }
 
@@ -111,6 +114,40 @@ void task3(){
 
 void task4(){
 
-    
+    struct TicTacToe{
+        char zero;
+        char cross;
+        bool draw;
+        char empty;
+        string computer;
+        string person;
+        int score_computer;
+        int score_person;
+    };
+
+    TicTacToe One;
+    One.zero = 'O';
+    One.cross = 'X';
+    One.empty = ' ';
+    One.computer = "Mega";
+    One.person = "Nikolay";
+    One.draw = false;
+    One.score_computer = 1;
+    One.score_person = 3;
+
+    cout <<"Cтруктура для игры\n\n";
+    cout << "zero: " << One.zero << endl;
+    cout << "cross: " << One.cross << endl;
+    cout << "empty: " << One.empty << endl;
+    cout << "name computer: " << One.computer << endl;
+    cout << "name person: " << One.person << endl;
+    cout << "статус ничьей : " << One.draw << endl;
+    cout << "очки компьютера : " << One.score_computer << endl;
+    cout << "очки человека : " << One.score_person << endl;
+
+}
+
+void task5(){
+
 
 }
