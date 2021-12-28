@@ -14,6 +14,8 @@ lesson 2
 */
 
 #include <iostream>
+#include <string>
+#include <vector>
 
 using namespace  std;
 void task1();
@@ -21,7 +23,7 @@ void task2();
 void task3();
 void task4();
 void task5();
-
+void displayBoard(const vector<char> &board);
 int main(){
     task1();
     task2();
@@ -71,7 +73,7 @@ void task1(){
 }
 
 void task2(){
-
+    //более зашищенный от сравнения нежели просто num
     enum  class Tic_Tac_Toe{X, O};
 
     Tic_Tac_Toe ZERO = Tic_Tac_Toe::O;
@@ -113,8 +115,10 @@ void task3(){
 }
 
 void task4(){
-
+//    vector<char> board;
     struct TicTacToe{
+        const int num_squares = 9;
+        vector<char> board;
         char zero;
         char cross;
         bool draw;
@@ -134,6 +138,7 @@ void task4(){
     One.draw = false;
     One.score_computer = 1;
     One.score_person = 3;
+    One.board = vector<char>(One.num_squares,One.empty);
 
     cout <<"Cтруктура для игры\n\n";
     cout << "zero: " << One.zero << endl;
@@ -144,9 +149,28 @@ void task4(){
     cout << "статус ничьей : " << One.draw << endl;
     cout << "очки компьютера : " << One.score_computer << endl;
     cout << "очки человека : " << One.score_person << endl;
+    displayBoard(One.board);
+
 
 }
+void displayBoard(const vector<char> &board) {
 
+    /*
+        Эта функция отображает переданное ей игровое поле. Поскольку в игре присут-
+        ствуют элементы всего трех видов: Х, О или пробел, функция может отображать
+        каждый из этих элементов. Чтобы нарисовать красивое поле для игры в •Крестики-
+        нолики•, я использую и некоторые символы с клавиатуры:
+     */
+
+
+    cout << "\n\t " << board[0] << " | " << board[1] << " | " << board[2];
+    cout << "\n\t " << "_________";
+    cout << "\n\t " << board[3] << " | " << board[4] << " | " << board[5];
+    cout << "\n\t " << "_________";
+    cout << "\n\t " << board[6] << " | " << board[7] << " | " << board[8];
+    cout << "\n\t ";
+
+}
 void task5(){
 
 
