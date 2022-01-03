@@ -24,6 +24,18 @@ void task3();
 void task4();
 void task5();
 void displayBoard(const vector<char> &board);
+union MyData{
+    int id;
+    float salary;
+    char status;
+};
+
+struct myVariant {
+     unsigned int isInt :3;
+     unsigned int isFloat :3;
+     unsigned int isChar :3;
+
+};
 int main(){
     task1();
     task2();
@@ -132,7 +144,7 @@ void task4(){
     TicTacToe One;
     One.zero = 'O';
     One.cross = 'X';
-    One.empty = ' ';
+    One.empty = '  ';
     One.computer = "Mega";
     One.person = "Nikolay";
     One.draw = false;
@@ -171,7 +183,32 @@ void displayBoard(const vector<char> &board) {
     cout << "\n\t ";
 
 }
+
+
 void task5(){
+    //Не совсем понятно задание
+    {
+        MyData data;
+        data.id = 1;
+        data.salary = 10000;
+        data.status = 'A';
+        cout<<"\n";
+        cout << data.id << endl;
+        cout << data.salary << endl;
+        cout << data.status << endl;
+
+
+        myVariant a1,a2;
+        a1.isChar = 1;
+        a1.isFloat = 0;
+        a1.isInt = 1;
+        a2 = a1;
+        cout << a2.isInt <<a2.isFloat << a2.isChar << endl;
+
+
+
+    }
+
 
 
 }
