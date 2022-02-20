@@ -31,9 +31,11 @@ union MyData{
 };
 
 struct myVariant {
-     unsigned int isInt :3;
-     unsigned int isFloat :3;
-     unsigned int isChar :3;
+     MyData data; //тут подсмотрел
+
+     unsigned int isInt :1;
+     unsigned int isFloat :1;
+     unsigned int isChar :1;
 
 };
 int main(){
@@ -44,7 +46,6 @@ int main(){
     task5();
     return 0;
 }
-
 void task1(){
     //Занимаем 1 байт  точно не определян размер
     bool false_true = 0; // все что больше 0 это true
@@ -83,7 +84,6 @@ void task1(){
 
 
 }
-
 void task2(){
     //более зашищенный от сравнения нежели просто num
     enum  class Tic_Tac_Toe{X, O};
@@ -103,7 +103,6 @@ void task2(){
         cout << "The is not CROSS!\n";
     }
 }
-
 void task3(){
 
     enum   Tic_Tac_Toe{X, O};
@@ -125,7 +124,6 @@ void task3(){
 
 
 }
-
 void task4(){
 //    vector<char> board;
     struct TicTacToe{
@@ -190,7 +188,7 @@ void task5(){
     {
         MyData data;
         data.id = 1;
-        data.salary = 10000;
+        data.salary = 10000.00f;
         data.status = 'A';
         cout<<"\n";
         cout << data.id << endl;
@@ -204,6 +202,13 @@ void task5(){
         a1.isInt = 1;
         a2 = a1;
         cout << a2.isInt <<a2.isFloat << a2.isChar << endl;
+
+
+        myVariant var;
+        //подсмотрел уже но мысль уловил благодарю(чезез 1входную точку управлять)
+        var.data.salary = 500.5f;
+        var.isInt = 0;
+        cout << var.isInt <<var.data.salary << endl;
 
 
 
