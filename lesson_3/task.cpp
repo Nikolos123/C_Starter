@@ -50,7 +50,7 @@ int main() {
 
 void task1(unsigned const int a, unsigned const int b, unsigned const int c, unsigned const int d) {
     //Прошу дать комментарии если речь не об этом была
-    float ans = static_cast<float>(a * (b + (c / d))) / 20;
+    float ans = (a * (b + (static_cast<float>(c) / d))) / 20;
     std::cout << "Значения " << ans << " Тип: " << typeid(ans).name() << std::endl;
 }
 

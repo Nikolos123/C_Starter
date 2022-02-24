@@ -1,6 +1,6 @@
 /*Nagorniy Nikolay
 
-lesson 3
+lesson 4
 В одном tack.cpp файле / проекте:
 
 
@@ -46,11 +46,11 @@ void task5();
 
 int main() {
 
-    task1();
-    task2();
+//    task1();
+//    task2();
     task3();
     task4();
-    task5();
+//    task5();
     return 0;
 }
 
@@ -101,23 +101,24 @@ void task3() {
         if (nCheck != 50) {
             int d = nCheck % 2;
             if (d != 0) {
-                aArra.push_back(nCheck);
+                std::cout << nCheck << " ";
             };
 
         }
         nCheck++;
     }
-    int i_ = 0;
-    int size_ = aArra.size();
-    for (int i = 0; i < size_; ++i) {
-        i_++;
-        if (i_ != size_) {
-            std::cout << aArra[i] << " ";
-        } else {
-            //Освобождаем
-            std::cout << aArra[i] << std::endl;
-        }
-    }
+    std::cout<< "\n" << std::endl;
+//    int i_ = 0;
+//    int size_ = aArra.size();
+//    for (int i = 0; i < size_; ++i) {
+//        i_++;
+//        if (i_ != size_) {
+//            std::cout << aArra[i] << " ";
+//        } else {
+//            //Освобождаем
+//            std::cout << aArra[i] << std::endl;
+//        }
+//    }
 
 };
 
