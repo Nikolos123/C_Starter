@@ -66,5 +66,9 @@ void task3() {
     int *pArr = NULL;
     pArr = &aArray[1][1][1];
     std::cout << *pArr << std::endl;
+    *pArr= 200;
+
+
+    std::cout << *pArr << std::endl;
 };
 
