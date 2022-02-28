@@ -121,23 +121,19 @@ void task3() {
 
 };
 
-void  task4(){
-    int n = 2;
-    int a = 0;
-    std::cout << "Введите число: " <<std::endl;
-    std::cin >> a;
-
-    for (int i = n; i < a; ++i) {
-        if(a%i == 0){
-            std::cout <<"Число составное" << std::endl;
-            break;
-        }
-        else{
-            std::cout <<"Число простое" << std::endl;
-            break;
-        }
+void  task4() {
+    int n, i;
+    bool isPrime = true;
+    std::cout << "Введите число: ";
+    std::cin >> n;
+    for(i = 2; i <= n / 2; ++i) {
+        if(n % i == 0) { isPrime = false; break; }
     }
+
+    if (isPrime) std::cout << "Простое";
+    else std::cout << "Cоставное";
 }
+
 
 void task5(){
     int n = 0;
