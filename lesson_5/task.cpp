@@ -28,6 +28,8 @@ lesson 5
 
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <cstdarg>
 
 
 void task1();
@@ -42,11 +44,11 @@ void task5();
 
 int main() {
 
-//    task1();
-//    task2();
-//    task3();
-
+    task1();
+    task2();
+    task3();
     task4();
+    task5();
 
     return 0;
 }
@@ -65,6 +67,14 @@ void changeArray(const int* pArr, const size_t SIZE) {
         std::cerr << "Can not change your array" <<  std::endl;
     for (size_t i = 0; i < SIZE; i++) {
         std::cout << pArr[i] << " ";
+    }
+}
+
+void addRandomArray(int* pArr, const size_t SIZE) {
+    if(pArr== nullptr || SIZE == 0)
+        std::cerr << "Can not add random number your array" <<  std::endl;
+    for (size_t i = 0; i < SIZE; i++) {
+       pArr[i] = rand()%100;
     }
 }
 
@@ -120,10 +130,57 @@ void task3(){
 
 void task4(){
 
-    const size_t SIZE = -3;
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    const size_t SIZE = 10;
+    const size_t SIZE_ADD = 10;
+    int arr[SIZE_ADD];
+    addRandomArray(arr,SIZE_ADD);
     printArray(arr,SIZE);
     changeArray(arr,SIZE);
     printArray(arr,SIZE);
+
+}
+
+
+int slice_array(int *input_array, int n){
+    int i;
+    int response = 0;
+    for(i=0; i <= n; i++) {
+        response +=input_array[i];
+//        sliced_array[i] = input_array[i];
+    }
+    return response;
+};
+
+void task5(){
+    int a = 0;
+    std::cout << "Введите размер массива: ";
+    std::cin >> a;
+    const size_t SIZE_ADD = a;
+    int arr[SIZE_ADD];
+//    int arr[] = {5,1,3,1};
+    addRandomArray(arr,SIZE_ADD);
+    printArray(arr,SIZE_ADD);
+    bool flag = false;
+    for (size_t i = 0; i < SIZE_ADD; i++) {
+
+        int response_left = slice_array(arr,i);
+        int response_right = slice_array(arr,SIZE_ADD-1);
+        int ans =response_right-response_left;
+        if (response_left == ans){
+            flag = true;
+            break;
+        }
+        else if(response_left > ans){
+            break;
+        }
+    }
+
+    if(flag){
+        std::cout << "The array has a place where there are matches" << std::endl;}
+
+    else{
+        std::cout <<"There is no place in the array where there are matches" << std::endl;
+    }
+
 
 }
