@@ -53,7 +53,7 @@ int main() {
 
 void printArray(const int* pArr, const size_t SIZE) {
     if(pArr== nullptr || SIZE == 0)
-        return;
+        std::cerr << "Can not print your array" <<  std::endl;
     for (size_t i = 0; i < SIZE; i++) {
         std::cout << pArr[i] << " ";
     }
@@ -62,22 +62,24 @@ void printArray(const int* pArr, const size_t SIZE) {
 
 void changeArray(const int* pArr, const size_t SIZE) {
     if(pArr== nullptr || SIZE == 0)
-        return;
+        std::cerr << "Can not change your array" <<  std::endl;
     for (size_t i = 0; i < SIZE; i++) {
         std::cout << pArr[i] << " ";
     }
 }
 
-void intArray(int* arr, const size_t SIZE) {
+void intArray(int* pArr, const size_t SIZE) {
     for (size_t i = 0; i < SIZE-2; i++) {
-        arr[i] = arr[i+SIZE];
+        pArr[i] = pArr[i+SIZE];
     }
 }
 
-void addArray(int arr[], int size) {
+void addArray(int* pArr, const size_t SIZE) {
+    if(pArr== nullptr || SIZE == 0)
+        std::cerr << "Can not change your array" <<  std::endl;
     int num =1;
-    for (size_t i = 0; i < size; i++) {
-        arr[i] = num;
+    for (size_t i = 0; i < SIZE; i++) {
+        pArr[i] = num;
         num +=3;
     }
 }
