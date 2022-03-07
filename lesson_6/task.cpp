@@ -133,9 +133,9 @@ int *clearing_ram(int *pArr) {
 
 int **clearing_ram(int **pArr,const size_t m) {
 
-    for (int i(0); i < m; i++) // освобождение памяти каждого одномерного массива в двумерном массиве - удаление столбцов
-        delete pArr[i];
-    delete pArr;// освобождение памяти двумерного массива
+    for (size_t i=0; i < m; i++) // освобождение памяти каждого одномерного массива в двумерном массиве - удаление столбцов
+        delete[] pArr[i];
+    delete[] pArr;// освобождение памяти двумерного массива
     pArr = nullptr;
     return pArr;
 
