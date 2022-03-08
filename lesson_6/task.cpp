@@ -45,10 +45,10 @@ std::string file_name_first,file_name_twice;
 
 int main() {
 
-//    task1();
-//    task2();
-//    task3();
-//    task4();
+    task1();
+    task2();
+    task3();
+    task4();
     task5();
 
     return 0;
