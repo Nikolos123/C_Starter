@@ -29,6 +29,7 @@ lesson 6
 */
 
 #include <iostream>
+#include <fstream>
 //#include <vector>
 //#include <cstdlib>
 //#include <cstdarg>
@@ -183,9 +184,64 @@ void task2() {
     }
 };
 
+std::string  generator(int size) {
+    srand(time(NULL));
+
+    std::string text;
+
+    for ( int i = 0, j = 0; i < size; i++ ) {
+        j = rand() % 10 + 1;
+
+        if ( j > size - i ) j = size - i;
+        i += j;
+
+        for ( int k = 0; k < j; k++ ) {
+            text += (char)(rand() % 26 + 97);
+        }
+        text += ' ';
+    }
+    text[text.size()-1] = '.';
+    return text;
+}
+
+
+std::string cin_name(std::string name){
+    std::cout << "Enter name " << name << " file :" << std::endl;
+    std::string file_name = "";
+    std::cin >> file_name;
+    return file_name+".txt";
+}
+
+void create_file(std::string name , std::string text){
+    std::ofstream fout;
+    fout.open(name);
+    if(fout.is_open()){
+        fout<<text<<std::endl;
+        fout.close();
+    }
+
+}
+
+int cin_size(std::string name){
+    std::cout << "Enter size text for file " << name  << std::endl;
+    int n = 0;
+    std::cin >> n;
+    return n;
+}
 
 void task3() {
-//    char file_name_one = "";
+    //create first file
+    std::string file_name_first = cin_name("first");
+    int size_first_file = cin_size(file_name_first);
+    std::string text_for_first_file = generator(size_first_file);
+    create_file(file_name_first,text_for_first_file);
+
+
+    //create twice file
+    std::string file_name_twice = cin_name("twice");
+    int size_twice_file = cin_size(file_name_twice);
+    std::string text_for_twice_file = generator(size_twice_file);
+    create_file(file_name_twice,text_for_twice_file);
 
 }
 
