@@ -171,7 +171,7 @@ void create_file(std::string name , std::string text){
     std::ofstream fout;
     fout.open(name);
     if(fout.is_open()){
-        fout<<text<<" ";
+        fout<<text<<std::endl;
         fout.close();
     }
 
@@ -195,11 +195,12 @@ std::string open_file(std::string name){
 //        while (!fin.eof()){
         while (!fin.eof()){
             getline(fin,text);
+            response+=text;
         }
         fin.close();
     }
-    fin.close();
-    return text;
+//    fin.close();
+    return response;
 }
 
 void unite_file(std::string third){
