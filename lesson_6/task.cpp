@@ -30,9 +30,6 @@ lesson 6
 
 #include <iostream>
 #include <fstream>
-//#include <vector>
-//#include <cstdlib>
-//#include <cstdarg>
 
 void task1();
 
@@ -44,13 +41,15 @@ void task4();
 
 void task5();
 
+std::string file_name_first,file_name_twice;
+
 int main() {
 
 //    task1();
 //    task2();
-    task3();
+//    task3();
 //    task4();
-//    task5();
+    task5();
 
     return 0;
 }
@@ -73,7 +72,6 @@ void printArray(const int **pArr, const size_t m, const size_t n) {
         std::cout << std::endl;
     }
 }
-
 
 int *highlighting_ram(int *pArr, const size_t SIZE) {
 
@@ -142,6 +140,84 @@ int **clearing_ram(int **pArr,const size_t m) {
 
 }
 
+std::string  generator(int size) {
+    srand(time(NULL));
+
+    std::string text;
+
+    for ( int i = 0, j = 0; i < size; i++ ) {
+        j = rand() % 10 + 1;
+
+        if ( j > size - i ) j = size - i;
+        i += j;
+
+        for ( int k = 0; k < j; k++ ) {
+            text += (char)(rand() % 26 + 97);
+        }
+        text += ' ';
+    }
+    text[text.size()-1] = '.';
+    return text;
+}
+
+std::string cin_name(std::string name){
+    std::cout << "Enter name " << name << " file :" << std::endl;
+    std::string file_name = "";
+    std::cin >> file_name;
+    return file_name+".txt";
+}
+
+void create_file(std::string name , std::string text){
+    std::ofstream fout;
+    fout.open(name);
+    if(fout.is_open()){
+        fout<<text<<" ";
+        fout.close();
+    }
+
+}
+
+int cin_size(std::string name){
+    std::cout << "Enter size text for file " << name  << std::endl;
+    int n = 0;
+    std::cin >> n;
+    return n;
+}
+
+std::string open_file(std::string name){
+    std::string text="";
+    std::string response="";
+
+    std::ifstream fin;
+    fin.open(name);
+    if(fin.is_open()){
+//        std::string text="";
+//        while (!fin.eof()){
+        while (!fin.eof()){
+            getline(fin,text);
+        }
+        fin.close();
+    }
+    fin.close();
+    return text;
+}
+
+void unite_file(std::string third){
+    std::ifstream fin;
+    std::ofstream fout;
+    std::string first_text = open_file(file_name_first);
+    std::string twice_text = open_file(file_name_twice);
+    fin.open(file_name_first);
+    if(fin.is_open()){
+        fout.open(third);
+        fout<<first_text<<std::endl;
+        fout<<twice_text<<std::endl;
+        fout.close();
+    }
+
+}
+
+
 void task1() {
 
     int *arr;
@@ -184,61 +260,17 @@ void task2() {
     }
 };
 
-std::string  generator(int size) {
-    srand(time(NULL));
-
-    std::string text;
-
-    for ( int i = 0, j = 0; i < size; i++ ) {
-        j = rand() % 10 + 1;
-
-        if ( j > size - i ) j = size - i;
-        i += j;
-
-        for ( int k = 0; k < j; k++ ) {
-            text += (char)(rand() % 26 + 97);
-        }
-        text += ' ';
-    }
-    text[text.size()-1] = '.';
-    return text;
-}
-
-
-std::string cin_name(std::string name){
-    std::cout << "Enter name " << name << " file :" << std::endl;
-    std::string file_name = "";
-    std::cin >> file_name;
-    return file_name+".txt";
-}
-
-void create_file(std::string name , std::string text){
-    std::ofstream fout;
-    fout.open(name);
-    if(fout.is_open()){
-        fout<<text<<std::endl;
-        fout.close();
-    }
-
-}
-
-int cin_size(std::string name){
-    std::cout << "Enter size text for file " << name  << std::endl;
-    int n = 0;
-    std::cin >> n;
-    return n;
-}
 
 void task3() {
     //create first file
-    std::string file_name_first = cin_name("first");
+    file_name_first = cin_name("first");
     int size_first_file = cin_size(file_name_first);
     std::string text_for_first_file = generator(size_first_file);
     create_file(file_name_first,text_for_first_file);
 
 
     //create twice file
-    std::string file_name_twice = cin_name("twice");
+    file_name_twice = cin_name("twice");
     int size_twice_file = cin_size(file_name_twice);
     std::string text_for_twice_file = generator(size_twice_file);
     create_file(file_name_twice,text_for_twice_file);
@@ -246,13 +278,34 @@ void task3() {
 }
 
 void task4() {
-
+    //unite first file and twice file
+    std::string file_name_third = cin_name("third");
+    unite_file(file_name_third);
 
 }
 
 
 void task5() {
-    int a = 0;
+    //enter name file
+    std::cout << "Enter name file where will search " << std::endl;
+    std::string name;
+    std::cin >> name;
+
+    //read file
+    name = open_file(name);
+
+    //look for line in file
+    std::cout << "Enter line for search  in file " << std::endl;
+    std::string line_find;
+    std::cin >> line_find;
+
+    if(name.find(line_find) != std::string::npos){
+        std::cout << "Our string was found in the file " << line_find << std::endl;
+    }
+    else
+    {
+        std::cout << "Our string was not found in the file " << line_find << std::endl;
+    }
 
 
 }
