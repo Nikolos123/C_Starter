@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(C_Starter
-        lesson_7/task.cpp lesson_3/task_example.cpp)
+        lesson_7/main.cpp lesson_3/task_example.cpp lesson_7/mylib.cpp lesson_7/mylib.h)

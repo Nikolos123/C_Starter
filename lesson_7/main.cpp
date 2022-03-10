@@ -34,27 +34,27 @@ lesson 7
 */
 
 #include <iostream>
-#include <fstream>
+#include "mylib.h"
 
-void task1();
-
-void task2();
-
-void task3();
-
-void task4();
-
-void task5();
 
 std::string file_name_first,file_name_twice;
 
 int main() {
+    float *arr;
+//    int a = 0;
+//    std::cout << "Enter size of your array: ";
+//    std::cin >> a;
+//    arr = call_printArray();
 
+//    complete_arr(arr,a);
+//    printArray(arr,a);
+//    complete_arr(arr,a);
+//    printArray(arr,a);
 //    task1();
 //    task2();
 //    task3();
 //    task4();
-    task5();
+//    task5();
 
     return 0;
 }
