@@ -43,8 +43,8 @@ void task4();
 #define big_t(x,y)  (x>0 and x <= y? "true":"false")
 #define ARRAY_SIZE 10
 int main() {
-//    task1();
-//    task2();
+    task1();
+    task2();
     task3();
     task4();
     return 0;
