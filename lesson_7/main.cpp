@@ -36,9 +36,17 @@ lesson 7
 #include <iostream>
 #include "mylib.h"
 void task1();
+void task2();
+void task3();
+void task4();
 
+#define big_t(x,y)  (x>0 and x <= y? "true":"false")
+#define ARRAY_SIZE 10
 int main() {
-    task1();
+//    task1();
+//    task2();
+    task3();
+    task4();
     return 0;
 }
 
@@ -52,11 +60,36 @@ void task1() {
 
 }
 void task2() {
+    std::cout << "Enter number: ";
+    int x = 0;
+    int y = 506;
+    std::cin >> x;
+    std::cout <<big_t(x,y)<< std::endl;
 
 };
 
 void task3() {
+    int arr[ARRAY_SIZE];
+    std::cout << "Enter 10 number for complete array: " << std::endl;
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        std::cin >> arr[i];
+    }
 
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        for (int j = 0; j < ARRAY_SIZE-1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int b = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = b;
+            }
+        }
+    }
+
+    std::cout << "Array view: ";
+
+    for (int i = 0; i < ARRAY_SIZE; i++) {
+        std::cout << arr[i] << " ";
+    }
 
 }
 
