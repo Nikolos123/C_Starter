@@ -6,14 +6,14 @@
 #include <iostream>
 
 int size;
+namespace MyNameSpace {
+    void printArray(const float *array) {
+        for (int i = 0; i < size; i++)
+            std::cout << array[i] << " ";
 
-void printArray(const float *array) {
-    for (int i = 0; i < size; i++)
-        std::cout << array[i] << " ";
-
-    std::cout << std::endl;
+        std::cout << std::endl;
+    }
 }
-
 float *call_printArray() {
     float *arr = new float[size];
     std::cout << "Enter size of your array: ";

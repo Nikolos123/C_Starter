@@ -42,11 +42,12 @@ void task4();
 
 #define big_t(x,y)  (x>0 and x <= y? "true":"false")
 #define ARRAY_SIZE 10
+#pragma pack(push, 1)
 int main() {
     task1();
-    task2();
-    task3();
-    task4();
+//    task2();
+//    task3();
+//    task4();
     return 0;
 }
 
@@ -55,7 +56,7 @@ void task1() {
     float *arr;
     arr = call_printArray();
     arr= complete_arr(arr);
-    printArray(arr);
+    MyNameSpace::printArray(arr);
     count_quantity(arr);
 
 }
@@ -94,6 +95,22 @@ void task3() {
 }
 
 void task4() {
+    struct MyStruct1 {
+        char var1; // 1 byte
+        short var2; // 2 bytes
+        char var3; // 1 byte
+        int var4; // 4 bytes
+    };
+
+    struct MyStruct2 {
+        char var1; // 1 byte
+        short var2; // 2 bytes
+        char var3; // 1 byte
+        int var4; // 4 bytes
+    };
+
+    std::cout << sizeof(MyStruct1) << " "
+              << sizeof(MyStruct2) << std::endl;
 
 
 }
