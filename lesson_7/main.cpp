@@ -35,42 +35,25 @@ lesson 7
 
 #include <iostream>
 #include "mylib.h"
-
-
-std::string file_name_first,file_name_twice;
+void task1();
 
 int main() {
-    float *arr;
-//    int a = 0;
-//    std::cout << "Enter size of your array: ";
-//    std::cin >> a;
-//    arr = call_printArray();
-
-//    complete_arr(arr,a);
-//    printArray(arr,a);
-//    complete_arr(arr,a);
-//    printArray(arr,a);
-//    task1();
-//    task2();
-//    task3();
-//    task4();
-//    task5();
-
+    task1();
     return 0;
 }
 
 
-
-
 void task1() {
-
+    float *arr;
+    arr = call_printArray();
+    arr= complete_arr(arr);
+    printArray(arr);
+    count_quantity(arr);
 
 }
-
 void task2() {
 
 };
-
 
 void task3() {
 
@@ -81,7 +64,6 @@ void task4() {
 
 
 }
-
 
 void task5() {
 
